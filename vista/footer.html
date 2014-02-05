@@ -1,0 +1,356 @@
+<div id="dialogConfirmCambiarColeccion"   style="display:none;"title="<?= $changeCollection ?>">
+    <b class="ancho"><?= $selectCollection ?>:</b><select id="selectDialogColeccion"><option>Seleccionar</option></select><br/><br/>
+    <b class="ancho"><?= $selectSubcollection ?>:</b><select id="selectDialogSubcoleccion"></select><br/>
+</div>
+<div id="dialogReportarObjeto"   style="display:none;" title="<?= $reportOA ?>">
+    <b class="ancho">Motivo por el cual reporta este Objeto:</b><br/><br/><textarea name="motivoReporte" id="motivoReporte"></textarea>
+</div>
+<div id="dialogComentarObjeto"  style="display:none;" title="<?= $ratedObject ?>">
+    <b class="ancho"><?= $textRatedObject ?>:</b><br/><br/><textarea name="comentarioValoracion" id="comentarioValoracion" maxlength="250"></textarea>
+    <br/><input type="checkbox" name="checkAnonimo" id="checkAnonimo"/> <?= $contentsAnonymousComment ?>
+</div>
+</div>
+
+<div class="popoverR fade top in" style="display: none;"><div class="arrow"></div>
+    <h3 class="popoverR-title">Recomendación<button id="cerrarModal" type="button" class="close pull-right" >×</button></h3> <div class="popoverR-content">Basados en estadisticas de valoración y descagargas de los usuarios, te recomendamos los siguintes <a id="linkdRecomendarOAs" href="">OAs</a></div>
+</div>
+
+<div id="dialogDownload" title="Vista previa" style="display:none">
+    <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>¿Desea ver el OA antes de descargarlo?</p>
+</div>
+<div id="coverDisplay" style="opacity: 1; width: 0%; height: 0%;">
+    <img id="imgLoading" src="http://roap.medellin.unal.edu.co/unalmed/vista/img/loading.gif">
+</div>
+</body>
+<div id="super-footer">
+
+    <div class="site-footer-inner text-align-center">
+
+        <ul>
+            <!--  <li class="main-footer-item footer-inline-item footer-link-about inline-block">
+              <a href="main.php?action=acerca" class="light-link">Acerca de</a>
+            </li>-->
+            <li class="main-footer-item footer-inline-item footer-link-about inline-block">
+                <a href="<?php if(isset($tabAdmin)) { ?>../../main.php?action=terminos<?php } else {?> main.php?action=terminos <?php } ?>" class="light-link"><?= $termsAndConditions ?></a>
+            </li>
+            <li class="main-footer-item footer-inline-item footer-link-blog inline-block">
+                <a href="<?php if(isset($tabAdmin)) { ?>../../main.php?action=licencia<?php } else {?> main.php?action=licencia <?php } ?>"" class="light-link"><?= $licensedUnderGPL ?></a>
+            </li>
+
+        </ul>
+
+    </div>
+
+</div>
+<script>
+    seeMore = "<?= $seeMore ?>";
+    seeLess = "<?= $seeLess ?>";
+    accept = "<?= $accept ?>";
+    cancel = "<?= $cancel ?>";
+    helpGeneralTitle = "<?= $helpGeneralTitle ?>";
+    helpGeneralDescription = "<?= $helpGeneralDescription ?>";
+    helpGeneralKeyword = "<?= $helpGeneralKeyword ?>";
+    helpGeneralLanguage = "<?= $helpGeneralLanguage ?>";
+    helpGeneralCoverage = "<?= $helpGeneralCoverage ?>";
+    helpGeneralStructure = "<?= $helpGeneralStructure ?>";
+    helpGeneralAggregationLevel = "<?= $helpGeneralAggregationLevel ?>";
+    helpGeneralCatalog = "<?= $helpGeneralCatalog ?>";
+    helpGeneralEntry = "<?= $helpGeneralEntry ?>";
+    helpLifeCycleVersion = "<?= $helpLifeCycleVersion ?>";
+    helpLifeCycleStatus = "<?= $helpLifeCycleStatus ?>";
+    helpLifeCycleRol = "<?= $helpLifeCycleRol ?>";
+    helpLifeCycleEntity = "<?= $helpLifeCycleEntity ?>";
+    helpLifeCycleDate = "<?= $helpLifeCycleDate ?>";
+    helpMetadataSchema = "<?= $helpMetadataSchema ?>";
+    helpMetadataLanguage = "<?= $helpMetadataLanguage ?>";
+    helpMetadataRol = "<?= $helpMetadataRol ?>";
+    helpMetadataEntity = "<?= $helpMetadataEntity ?>";
+    helpMetadataDate = "<?= $helpMetadataDate ?>";
+    helpMetadataCatalog = "<?= $helpMetadataCatalog ?>";
+    helpMetadataEntry = "<?= $helpMetadataEntry ?>";
+    helpTechnicalFormat = "<?= $helpTechnicalFormat ?>";
+    helpTechnicalSize = "<?= $helpTechnicalSize ?>";
+    helpTechnicalUbiety = "<?= $helpTechnicalUbiety ?>";
+    helpTechnicalType = "<?= $helpTechnicalType ?>";
+    helpTechnicalName = "<?= $helpTechnicalName ?>";
+    helpTechnicalMinimumVersion = "<?= $helpTechnicalMinimumVersion ?>";
+    helpTechnicalMaximumVersion = "<?= $helpTechnicalMaximumVersion ?>";
+    helpTechnicalInstallationRemarks = "<?= $helpTechnicalInstallationRemarks ?>";
+    helpTechnicalOtherPlatformRequirements = "<?= $helpTechnicalOtherPlatformRequirements ?>";
+    helpTechnicalDuration = "<?= $helpTechnicalDuration ?>";
+    helpLearningResourceType = "<?= $helpLearningResourceType ?>";
+    helpLearningInteractivityType = "<?= $helpLearningInteractivityType ?>";
+    helpLearningInteractivityLevel = "<?= $helpLearningInteractivityLevel ?>";
+    helpLearningIntendedEndUserRole = "<?= $helpLearningIntendedEndUserRole ?>";
+    helpLearningContext = "<?= $helpLearningContext ?>";
+    helpLearningTypicalAgeRange = "<?= $helpLearningTypicalAgeRange ?>";
+    helpLearningDifficulty = "<?= $helpLearningDifficulty ?>";
+    helpLearningTypicalLearningTime = "<?= $helpLearningTypicalLearningTime ?>";
+    helpLearningDescription = "<?= $helpLearningDescription ?>";
+    helpLearningLanguage = "<?= $helpLearningLanguage ?>";
+    helpLearningSemanticDensity = "<?= $helpLearningSemanticDensity ?>";
+    helpRightsCost = "<?= $helpRightsCost ?>";
+    helpRightsCopyrightAndOtherRestrictions = "<?= $helpRightsCopyrightAndOtherRestrictions ?>";
+    helpRightsDescription = "<?= $helpRightsDescription ?>";
+    helpRelationKind = "<?= $helpRelationKind ?>";
+    helpRelationDescription = "<?= $helpRelationDescription ?>";
+    helpRelationCatalog = "<?= $helpRelationCatalog ?>";
+    helpRelationEntry = "<?= $helpRelationEntry ?>";
+    helpAnnotationEntity = "<?= $helpAnnotationEntity ?>";
+    helpAnnotationDate = "<?= $helpAnnotationDate ?>";
+    helpAnnotationDescription = "<?= $helpAnnotationDescription ?>";
+    helpClassificationPurpose = "<?= $helpClassificationPurpose ?>";
+    helpClassificationDescription = "<?= $helpClassificationDescription ?>";
+    helpClassificationKeywords = "<?= $helpClassificationKeywords ?>";
+    helpClassificationSource = "<?= $helpClassificationSource ?>";
+    helpClassificationId = "<?= $helpClassificationId ?>";
+    helpClassificatioEntry = "<?= $helpClassificatioEntry ?>";
+    quit = "<?= $quit ?>";
+    description = "<?= $description ?>";
+    keywords = "<?= $keywords ?>";
+    coverage = "<?= $coverage ?>";
+    catalog = "<?= $catalog ?>";
+    entry = "<?= $entry ?>";
+    role = "<?= $role ?>";
+    role1 = "<?= $role1 ?>";
+    role2 = "<?= $role2 ?>";
+    role3 = "<?= $role3 ?>";
+    role4 = "<?= $role4 ?>";
+    role5 = "<?= $role5 ?>";
+    role6 = "<?= $role6 ?>";
+    role7 = "<?= $role7 ?>";
+    role8 = "<?= $role8 ?>";
+    role9 = "<?= $role9 ?>";
+    role10 = "<?= $role10 ?>";
+    role11 = "<?= $role11 ?>";
+    role12 = "<?= $role12 ?>";
+    role13 = "<?= $role13 ?>";
+    role14 = "<?= $role14 ?>";
+    entity="<?= $entity ?>";
+    date="<?= $date ?>";
+    metadataSchema="<?= $metadataSchema ?>";
+    select="<?= $select ?>";
+
+</script>
+</html>
+<style>
+    .popoverR {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1010;
+        display: none;
+        max-width: 276px;
+        padding: 1px;
+        text-align: left;
+        white-space: normal;
+        background-color: #ffffff;
+        border: 1px solid #ccc;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        -webkit-border-radius: 6px;
+        -moz-border-radius: 6px;
+        border-radius: 6px;
+        -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        -webkit-background-clip: padding-box;
+        -moz-background-clip: padding;
+        background-clip: padding-box;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        color: #333333;
+    }
+
+    .popoverR.top .arrow {
+        bottom: -11px;
+        left: 50%;
+        margin-left: -11px;
+        border-top-color: #999;
+        border-top-color: rgba(0, 0, 0, 0.25);
+        border-bottom-width: 0;}
+    .popoverR .arrow, .popoverR .arrow:after {
+        position: absolute;
+        display: block;
+        width: 0;
+        height: 0;
+        border-color: transparent;
+        border-style: solid;
+    }
+    .popoverR .arrow {
+        border-width: 11px;
+    }
+    .popoverR.top .arrow:after {
+        bottom: 1px;
+        margin-left: -10px;
+        border-top-color: #ffffff;
+        border-bottom-width: 0;
+    }
+    .popoverR .arrow:after {
+        border-width: 10px;
+        content: "";
+    }
+    .popoverR .arrow, .popoverR .arrow:after {
+        position: absolute;
+        display: block;
+        width: 0;
+        height: 0;
+        border-color: transparent;
+        border-style: solid;
+    }
+    .popoverR-title {
+        padding: 8px 14px;
+        margin: 0;
+        font-size: 14px;
+        font-weight: normal;
+        line-height: 18px;
+        background-color: #f7f7f7;
+        border-bottom: 1px solid #ebebeb;
+        -webkit-border-radius: 5px 5px 0 0;
+        -moz-border-radius: 5px 5px 0 0;
+        border-radius: 5px 5px 0 0;
+    }
+    .popoverR-content {
+        padding: 9px 14px;
+    }
+    .close {
+        float: right;
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 20px;
+        color: #000000;
+        text-shadow: 0 1px 0 #ffffff;
+        opacity: 0.2;
+        filter: alpha(opacity=20);
+        background: transparent;
+        border: none;
+        margin-top: -5px;
+        margin-right: -12px;
+    }
+    .close:hover, .close:focus {
+        color: #000000;
+        text-decoration: none;
+        cursor: pointer;
+        opacity: 0.4;
+        filter: alpha(opacity=40);
+    }
+
+
+    #dialogConfirmCambiarColeccion .ancho{
+        display:inline-block;
+        width: 200px;
+    }
+    #dialogReportarObjeto .ancho{
+        display:inline-block;
+        width: 300px;
+    }
+    #motivoReporte,#comentarioValoracion{
+        width: 290px;
+        height: 100px;
+    }
+    #licenciacreativecommons{
+        padding: 1em 1em 0 1em;
+        color:#555;
+        clear: both;
+    }
+    #licenciacreativecommons a{
+        text-decoration: none;
+        color:#222;
+    }
+    #licenciacreativecommons a:hover{
+        text-decoration: underline;
+    }
+    #super-footer{
+        background: #202020;
+        background: -moz-linear-gradient(top, #202020 0%, #111 42%, #111 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #202020), color-stop(42%, #111), color-stop(100%, #111));
+        background: -webkit-linear-gradient(top, #202020 0%, #111 42%, #111 100%);
+        background: -o-linear-gradient(top, #202020 0%, #111 42%, #111 100%);
+        background: -ms-linear-gradient(top, #202020 0%, #111 42%, #111 100%);
+        background: linear-gradient(to bottom, #202020 0%, #111 42%, #111 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#202020', endColorstr='#111111',GradientType=0 );
+        border-bottom-color: #262626;
+        border: 1px solid transparent;
+        padding: 5px 0;
+        margin-top: 1em;
+    }
+    .text-align-center {
+        text-align: center;
+    }
+
+    .footer-logo {
+        height: 19px;
+        width: 80px;
+    }
+    .footer-logo {
+        top: -4px;
+    }
+    .vertical-divider {
+        width: 1px;
+        height: 20px;
+        opacity: .9;
+        display: inline-block;
+        margin: 0 8px;
+        background: #8F8F8F;
+        vertical-align: middle;
+        margin: -7px 10px 0;
+    }
+    .site-footer-inner {
+        width: 990px;
+        margin: auto;
+    }
+    .footer-inline-item:first-child {
+        padding-left: 0;
+        margin-left: 0;
+        border-left-width: 0;
+    }
+    .inline-block {
+        display: inline-block;
+    }
+
+    .footer-inline-item {
+        border-left: 1px solid #333;
+        margin-left: 6px;
+        padding-left: 10px;
+    }
+    .footer-inline-item {
+        border-left: 1px solid #333;
+    }
+    .light-link {
+        color: #1769FF;
+        text-decoration:none;
+    }
+    .light-link:hover {
+        color: white;
+    }
+    #super-footer ul{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    .footer-icon {
+        display: inline-block;
+        vertical-align: middle;
+        position: relative;
+    }
+    #coverDisplay{
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: #444;
+        background: rgba(68,68,68,0.8);
+        overflow: hidden;
+        filter: alpha(opacity=0);
+        opacity: 0;
+        z-index: 1500;
+    }
+    #imgLoading{
+        width: 64px;
+        height: 64px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -32px;
+        margin-left: -32px;
+    }
+</style>

@@ -1,0 +1,80 @@
+
+#encabezado{
+    margin:auto;
+    margin-top:2em;
+    width:70%;
+    background:#FFFF9D;
+    border: 1px solid #999;
+    padding: 2em;
+}
+#area2 .encabezado2{
+    margin:auto;
+    font: 1.5em Tahoma, sans-serif;
+    width:inherit;
+    text-align:left;
+
+
+}
+
+
+#area2 legend{
+    font: 2em sans-serif,Tahoma;
+    text-align:left;
+
+}
+#area2 span{
+
+    /* font-weight: bold;*/
+    font-size:1.2em;
+    margin-left: 2em;
+    margin-right: 2em;;
+    line-height:5em;
+
+
+
+}
+#area2 .submit{ 
+    cursor:pointer;
+    float:right;
+    border:none;
+    width:32px;
+    height:32px;
+    background:url(../img/saveFinal.png) no-repeat;
+
+
+}
+#area2 .descripcion{
+    float: right;		
+    width:32px;
+    height:32px;
+    background:url(../img/help.png) no-repeat;
+
+}
+#area2 .categoria{
+    margin-top: 1em;
+    margin-bottom: 2em;
+    border: 2px solid #999;
+    background:#F3F3F3;
+}
+#area2 .nivel{
+    padding-left:1em;
+    text-align: left;
+    padding-right: 2em;
+
+}
+#area2 .nivel .nivel{
+    margin-bottom:1em;
+    border: 1px solid #999;
+
+}
+#area2 .nivel .nivel legend{
+    font: 1.7em Tahoma, sans-serif;
+    font-size: none;
+
+}
+#area2 fieldset, #des1, #save{
+    margin-left: 3em;
+    margin-right:3em;
+}
+
+

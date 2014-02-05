@@ -1,0 +1,523 @@
+#formulario input[type=text]{
+    width: 250px;
+}
+#formulario .fondoBlanco{
+    background: white;
+}
+/*titulo principal*/
+#contenedor {
+    background-image: url(../img/a_bg.gif);
+    width:100%;
+    line-height: 40px;
+    text-align:center;
+}
+#titulop{
+    position:static;
+    font-weight: bold;
+    font-size:2em;
+    top: 50%;
+    color:#CCCCCC;
+}
+
+/*En este contenedor esta el menú*/
+.contenedor2 {
+
+    width:90%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align:center;
+}
+
+/*Crear el menú*/
+ul.tabs {
+    margin: 0;
+    padding: 0;
+    margin-left: auto;
+    margin-right: auto;
+    list-style: none; /*Quitar el underkine a los  links*/ 
+    height: 32px;
+    border-left: 1px solid #999;
+    width: 100%;
+    border-bottom: 1px solid #fff;
+}	
+
+/*Estilizar el menú*/
+ul.tabs li {
+    font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;		
+    margin-left: auto;
+    margin-right: auto;
+    float: left;
+    margin: 0;
+    padding: 0;
+    height: 31px;
+    line-height: 31px;
+    border-left: none;
+    margin-bottom: -1px;			
+    overflow: hidden;
+    position: relative;
+}
+ul.tabs li a {		
+    text-decoration: none;
+    color: white;
+    display: block;
+    font-size: 1.2em;
+    padding: 0 7px 0 2px;
+    border: 1px solid white;		
+}					
+ul.tabs li a:hover {
+    background: #DBDBDB !important;
+    color:black;
+}	
+html ul.tabs  li.active a {
+    color: black;
+    background: #fff !important;
+    border-bottom: 1px solid white;
+
+}
+html ul.tabs li.visitado a{
+    text-shadow: rgba(0, 0, 0, 0.6) 0px -1px 1px;
+    background: #8D8D77;
+
+}
+.contenedor3 {
+
+    border: px solid black;
+    border-top: 1px solid white;
+    background:white;
+    padding: 2% 3%;
+    height:auto;
+    clear:both;
+    border: 1px solid B8B8B8;
+    -webkit-box-shadow: 0 0 5px 1px #C7C7C7;
+    -moz-box-shadow: 0 0 5px 1px #c7c7c7;
+    box-shadow: 0 0 5px 1px #C7C7C7;
+}
+
+
+
+legend{
+    font: 2em Tahoma, sans-serif;
+}
+
+
+.nivel2{
+
+    border: 1px solid #999;
+    font-weight: bold;
+    padding: 2% 5%;
+    margin-bottom:2em;
+}
+.nivel3{
+
+    border:none;
+
+    overflow:auto;
+}
+div.titulo{
+    float: left;
+    width: 40%;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: right;
+}
+
+.titulo, .input{
+    padding:1em 0 1em 0;
+}
+.input{
+    text-align:left;
+}
+div.next a{			
+    float: right;
+    margin-top: -35px;
+    width:42px;
+    height:43px;
+    background:url('../img/s.gif') -91px 0 no-repeat;	
+}
+div.next a:hover{		
+    background: url('../img/s.gif') -91px -45px no-repeat;
+}
+div.prev a{
+    float:left !important;
+    width:42px;
+    height:43px;
+    background:url('../img/s.gif') -48px 0 no-repeat;	
+}
+div.prev a:hover{		
+    background: url('../img/s.gif') -48px -45px no-repeat;
+}
+
+.container h1{
+    text-align:center;
+}
+/*.nivel3 input:focus {
+    border: 2px solid #E6B700;
+    background:#DADADA;
+}*/
+.err{
+    color: white;
+    margin-left: 16px;
+    margin-top: 6px;
+    position: absolute;
+    font-size:14px;
+    padding: 3px 8px;
+    color: #ffffff;
+    font-weight: normal;
+    text-decoration: none;
+    background-color: #000000;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+    text-align: justify;
+}
+/* Este es un truco para crear una flechita */
+.err:before{ 
+    content: '';
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-right: 8px solid #000000;
+    border-left: 8px solid transparent;
+    left: -16px;
+    position: absolute;
+    top: 5px;
+}	
+.descripcion{
+    float: right;		
+    width:20px;
+    height:20px;
+    background:url(../img/help.png) no-repeat;
+
+}
+.obligatorio{
+    color:red;
+}
+.at a{
+
+    float:right;
+    top:2em;
+    border:none;
+    width:32px;
+    height:32px;
+    background:url(../img/anadir.png) no-repeat;
+}
+.at  a:hover { 
+
+
+    background:url(../img/anadir2.png) no-repeat;
+}
+.qt a {
+
+    float:right;
+    top:2em;
+    border:none;
+    width:32px;
+    height:32px;
+    background:url(../img/quitar.png) no-repeat;
+
+}
+.qt  a:hover { 
+
+
+    background:url(../img/quitar2.png) no-repeat;
+}
+
+.guardarParcialmente{
+    margin-left: -5em;
+    text-align: center;
+    border:none;
+    width:32px;
+    height:32px;
+    background:url(../img/savePartial.png) no-repeat;
+}
+.guardarCompletamente{
+    margin-left: 2em;
+    text-align: center;
+    border:none;
+    width:32px;
+    height:32px;
+    background:url(../img/saveFinal.png) no-repeat;
+}
+
+#save a{			
+    float: right;		
+    width:32px;
+    height:32px;
+    background:url('../img/save.png') no-repeat;	
+}
+#save a:hover{		
+    background: url('../img/save2.png') no-repeat;
+}
+.tabs span{
+
+    display: inline-block;
+    width:16px;
+    height:16px;
+}
+#image1{
+    background: url('../img/general.png') no-repeat;
+}
+#image2{
+    background: url('../img/life_cycle.png') no-repeat;
+}
+#image3{
+    background: url('../img/meta-data.png') no-repeat;
+}
+#image4{
+    background: url('../img/technical.png') no-repeat;
+}
+#image5{
+    background: url('../img/educational.png') no-repeat;
+}
+#image6{
+    background: url('../img/right.png') no-repeat;
+}
+#image7{
+    background: url('../img/relation.png') no-repeat;
+}
+#image8{
+    background: url('../img/annotation.png') no-repeat;
+}
+#image9{
+    background: url('../img/classification.png') no-repeat;
+}
+
+.caja{
+
+
+    margin:auto;
+    width:100%;
+    height:auto;	
+    overflow:auto;
+
+
+}
+.caja2{
+    background:#F3F3F3;
+    text-align:right;
+    margin-top: 1em;
+    margin-bottom: 3em;
+    float:left;
+    width: 90%;
+    border:  1px solid #999;;
+}
+
+.caja3{
+    float:left;
+    width: 9%;
+    margin-top: 3em;
+    border: none;
+}
+.anidada{
+    margin-left: -0em !important;
+    width: 100%;
+
+}
+.anidada2{
+
+    margin-left: 0em !important;
+    padding-bottom:0em;
+    background: white;
+    padding-left: 0em !important;   
+    width:86%; 
+    padding-left: 2em  !important;;
+
+
+}
+.anidada2 .caja{
+    width:auto; 
+
+}
+legend{
+    text-align: left;
+}
+
+.pr{
+    font: 1.5em Tahoma, sans-serif;
+    clear:both;
+    text-align:left;
+    border: 1px solid black;
+}
+
+.subcategoria{
+    clear:both;
+    margin-bottom: 2em;
+    margin-left: 0em;
+    padding-left: 2em;
+
+}
+.subcategoria legend{
+    font: 1.7em Tahoma, sans-serif;
+
+}
+.classificationTaxonPath{
+    background: white;
+    padding-left: 2em;
+    width: 86%;
+}
+.error{
+    color: red;
+}
+.radioButonAling{
+    display:inline-block;
+    width: 200px;
+    text-align: left;
+}
+.nbc,.fslsm,.vark{
+    margin-left: 0.5em;
+    cursor: pointer;
+    color:blue;
+}
+.masnbc{
+    display: inline-block;
+    width:16px;
+    height:16px;
+    background:url(../img/mas.png) no-repeat;
+    margin-bottom: -2px;
+    margin-right:0.3em;
+}
+#technicalDurationTab, #educationalTypicalLearningTimeTab{
+    display: inline-block;
+    width:16px;
+    height:16px;
+    background:url(../img/mas.png) no-repeat;
+    margin-bottom: -2px;
+    margin-right:0.3em;  
+    cursor:pointer;
+}
+.desplegableNbc{
+
+}
+.izqNbc{
+    margin-left: 5em;
+}
+.desplegableNbc{
+    background:white;
+    border: 1px solid #FF7519;
+    margin-left:5em;
+    margin-right:5em;
+    margin-bottom: 1em;
+}
+
+.desplegableNbc .input {
+
+    padding: 0.1em;
+    margin: 0.1em;
+}
+.desplegableNbc .titulo {
+
+    padding: 0.1em;
+    margin: 0.1em;
+}
+#technicalDurationTabContainer, #educationalTypicalLearningTimeTabContainer{
+    background:white;
+    border: 1px solid #FF7519;
+    margin-left:5em;
+    margin-right:5em;
+    margin-bottom: 1em;
+}
+#technicalDurationTabContainer select, #educationalTypicalLearningTimeTabContainer select{
+    margin: 1em 1em 1em 0;
+}
+#technicalDurationTabContainer .alingButtonCenter, #educationalTypicalLearningTimeTabContainer .alingButtonCenter{
+    text-align: center;
+    margin-bottom: 1em;
+}
+#formulario input,select,textarea{
+    padding: 3px;
+
+}
+#formulario input:focus,select:focus,textarea:focus{
+    border: 1px solid #4D90FE;
+    padding: 4px;
+}
+
+
+/*Estilos d Aprendizaje*/
+.estilosA{
+    background: white;
+    margin-left: 2em;
+    margin-right: 2em;
+    background: none repeat scroll 0 0 white;
+    border: 1px solid #FF7519;
+    margin-bottom: 1em;
+    margin-left: 5em;
+    margin-right: 5em;
+    padding: 1em;
+}
+.estilosA legend{
+    text-align: cener;
+    font-size: 15px;
+    color:black;
+    margin: 1em;
+    padding: 0.5em;
+}
+.fFslsm,.fVark{
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    border: 1px solid #E6E6E6;
+    padding-bottom: 1em;
+}
+.eafloatIz{
+    float:left;
+    margin:1em 1em 0 1em;
+}
+.columna1{
+    text-align: right;
+    width: 70px;
+}
+.columna2{
+    text-align: left;
+    width: 70px;
+}
+.center{
+    float:left;
+    text-align: center;
+    min-width: 200px;
+    margin-top: 2em;
+}
+
+
+.estiloR{
+    border:0; color:#f6931f; font-weight:bold;
+    text-align: center;
+    padding-top: 1em;
+    padding-bottom: 0.5em;
+    background: white;
+}
+.clear{
+    clear:both;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+
+}
+.eaEnviar{
+    padding-top: 2em;
+}
+textarea{
+    width:250px;
+    height:100px
+} 
+.eaOcultarInput{
+    width: 40px;
+    border: 0;
+    background: white;
+    color:  #F6931F;
+    font-weight: bold;
+    text-align: center;
+}
+/*-----------------*/
+#formulario .dinput{
+    color: #777;
+    font-weight: normal;
+    margin-left: 40%;
+}
+#formulario .dSubInput{
+    color: #777;
+    font-weight: normal;
+    margin-left: 380px;
+}

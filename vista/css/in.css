@@ -1,0 +1,34 @@
+.editarOaimg{
+    cursor:pointer;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    display: inline-block;
+    width:16px;
+    height:16px;
+    background:url(../img/editarOAimg.gif) no-repeat !important;
+    margin-bottom: -2px;
+}
+
+.borrarOaimg{
+    cursor:pointer;
+    margin-left: 0.5em;
+    display: inline-block;
+    width:16px;
+    height:16px;
+    background:url(../img/borrarOAimg.png) no-repeat !important;
+    margin-bottom: -2px;
+}
+    .cambiarColeccionOA{
+        cursor:pointer;
+        margin-left:0.5em;
+        margin-right: 0.5em;
+        display: inline-block;
+        width:16px;
+        height:16px;
+        background:url(../img/cambiarColeccionOA.gif) no-repeat !important;
+        margin-bottom: -2px;
+    }
+.cursor{
+    cursor: pointer;
+    overflow: hidden;
+}
