@@ -115,8 +115,8 @@ function getCountry($ip) {
 }
 
 function vaciarFiles() {
-    $dir = "../files/";
-    exec("find $dir . -mmin +30 -delete");
+ //   $dir = "../files/";
+ //   exec("find $dir . -mmin +30 -delete");
 }
 
 ?>
