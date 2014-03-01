@@ -1,6 +1,6 @@
 <?php
-session_start();
-require '../modelo/conexion.php';
+if(!isset($_SESSION)){session_start();}
+require 'modelo/conexion.php';
 $c = conector_pg::getInstance();
 require('multiLenguaje.php');
 extract($_POST);
