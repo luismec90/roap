@@ -87,6 +87,17 @@ class OAIPMH {
                     }
                 }
                 break;
+
+            case 'Identify':
+
+                if ($this->is_valid_identify_request()) {
+                    $this->add_to_response($this->get_request(true));
+                    $this->add_to_response($this->get_data_Identify());
+                } else {
+                    $this->add_to_response($this->get_request(false));
+                    $this->add_to_response($this->get_error("badArgument"));
+                }
+                break;
             default :
                 $this->add_to_response($this->get_request(false));
                 $this->add_to_response($this->get_error("badVerb"));
@@ -133,12 +144,13 @@ class OAIPMH {
         if (isset($this->request['resumptionToken']))
             return true;
 
-        return (isset($this->supported_protocols[$this->request['metadataPrefix']])) ? true : false;
+        return (isset($this->supported_protocols[$this->request['metadataPrefix']]));
     }
 
     private function has_getRecord_record() {
         $result = $this->get_xmlo($this->request['identifier']);
-        return ($result) == 1 ? true : false;
+
+        return pg_num_rows($result) == 1;
     }
 
     private function get_record() {
@@ -223,7 +235,7 @@ class OAIPMH {
                 $this->error['ListRecords'] = 3;
             }
         } else {
-         //   echo "pasa1";
+            //   echo "pasa1";
             if ($this->has_listRecords_set_argument()) {
                 $this->error['ListRecords'] = 5;
             } else {
@@ -231,6 +243,49 @@ class OAIPMH {
                 $this->error['ListRecords'] = 1;
             }
         }
+    }
+
+    //identify
+    private function is_valid_identify_request() {
+        return (count($this->request) == 1 && isset($this->request['verb']) && $this->request['verb'] == "Identify");
+    }
+
+    #information about idetify verb
+
+    private function get_data_Identify() {
+
+
+        $information = $this->get_repository_information();
+
+
+        $this->add_to_response($this->initial_label("Identify"));
+
+        $this->add_to_response($this->close("repositoryName", $information['repository_name']));
+        $this->add_to_response($this->close("baseURL", SERVER));
+        $this->add_to_response($this->close("protocolVersion", "2.0"));
+        $this->add_to_response($this->close("adminEmail", $information['email_administrator']));
+        $this->add_to_response($this->close("deletedRecord", "transient"));
+        $this->add_to_response($this->close("granularity", "YYYY-MM-DDThh:mm:ssZ"));
+        $this->add_to_response($this->close("compression", "deflate"));
+
+
+
+        $this->add_to_response($this->final_label("Identify"));
+    }
+
+    
+    
+    
+    
+    
+    #funcion que retorna la informacion del repositorio
+
+    private function get_repository_information() {
+
+        $query = "SELECT  * FROM repository_information";
+        $result = $this->conexion->realizarOperacion($query);
+
+        return pg_fetch_assoc($result);
     }
 
 //agrega la etiqueta del siguiente token
@@ -306,7 +361,7 @@ class OAIPMH {
         }
     }
 
-    private function has_next_resumption_token() {      
+    private function has_next_resumption_token() {
         $offset = 0;
         if ($this->has_resumption_token()) {
             $resumption_token = $this->split_resumption_token();
@@ -451,9 +506,9 @@ class OAIPMH {
 
     private function get_xmlo($idlo, $attr = 'xmlo', $text = true) {
         $result = $this->conexion->realizarOperacion("SELECT xmlo,insertiondate FROM lo WHERE idlo='$idlo'");
-        if ($text)
+        if ($text) {
             return $result;
-        else {
+        } else {
             $result = pg_fetch_array($result);
             return ($result[$attr]);
         }
