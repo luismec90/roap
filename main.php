@@ -118,7 +118,7 @@ if (isset($_GET['action'])) {
             echo "</div>";
             break;
         case "dRecomendarOAs":
-            if (!$_GET["idlo"]) { //Si no esta logueado redirecionar al main.php sin action
+            if (!$_GET["idlo"]) {
                 header("location:main.php");
             }
             require('vista/listarColecciones.php');

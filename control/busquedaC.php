@@ -1,6 +1,13 @@
 <?php
-if(!isset($_SESSION)){session_start();}
-require 'modelo/conexion.php';
+if (!isset($_SESSION)) {
+    session_start();
+}
+if (file_exists('modelo/conexion.php')) {
+    require_once 'modelo/conexion.php';
+}else{
+       require_once '../modelo/conexion.php';
+}
+
 $c = conector_pg::getInstance();
 require('multiLenguaje.php');
 extract($_POST);
@@ -1110,7 +1117,7 @@ while ($data = pg_fetch_array($idlos)) {
         }
         ?>
     </table>
-    <?php if (isset($_GET["action"]) && $_GET["action"] != "recomendarOAs" && $_GET["action"] != "dRecomendarOAs") { ?>
+<?php if (isset($_GET["action"]) && $_GET["action"] != "recomendarOAs" && $_GET["action"] != "dRecomendarOAs") { ?>
         <div id="botonesNavegacion">
             <a id="primero" button="primero" title="Primero"></a>
             <a id="anteriores" button="anteriores" title="100 anteriores"></a>
@@ -1124,6 +1131,6 @@ while ($data = pg_fetch_array($idlos)) {
             <a id="siguientes" button="siguientes" title="100 Siguientes"></a>
             <a id="ultimo" button="ultimo" title="Último"></a>
         </div>
-    <?php } ?>
+<?php } ?>
 </div>
 
