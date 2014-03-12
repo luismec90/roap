@@ -35,7 +35,7 @@ if (file_exists($dir)) {
                 header("Content-Type: application/octet-stream");
                 header("Content-Length: " . filesize($enlace2));
                 readfile($enlace2);
-            } else if ($extension == "pdf" || $extension == "jpg" || $extension == "png" || $extension == "txt") {
+            } else if ($extension == "pdf" || $extension == "jpg" || $extension == "png" || $extension == "txt" || $extension == "xml") {
                 header("location:$enlace2");
             } else if ($extension == "doc" || $extension == "docx" || $extension == "ppt" || $extension == "pptx" || $extension == "xls" || $extension == "xlsx" || $extension == "zip") {
 
@@ -68,8 +68,8 @@ if (file_exists($dir)) {
             } else {
                 header("Content-Disposition: attachment; filename=" . $f);
                 header("Content-Type: application/octet-stream");
-                header("Content-Length: " . filesize($enlace));
-                readfile($enlace);
+                header("Content-Length: " . filesize($enlace2));
+                readfile($enlace2);
             }
             //   header("Location:uploads/" . getLocation($id) . $id . "." . end($miarray));
         }

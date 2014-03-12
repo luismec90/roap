@@ -1,3 +1,3 @@
 <?php 
-echo sha1("minroapad");
+echo sha1("123");
 ?>
